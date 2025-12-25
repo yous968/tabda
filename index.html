@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Metric System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div style="display:flex; align-items:baseline; gap:16px; flex-wrap: wrap;">
+                <h1>CoreSight</h1>
+                <div style="font-size: 14px; color: #4a5568;">
+                    <strong>Platform:</strong> <span id="platformHeader">-</span>
+                </div>
+                <div style="font-size: 14px; color: #4a5568;">
+                    <strong>IPv4:</strong> <span id="ipv4Header">-</span>
+                </div>
+                <div style="font-size: 14px; color: #4a5568;">
+                    <strong>IPv6:</strong> <span id="ipv6Header">-</span>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="reportBtn" class="btn btn-secondary">Generate Report</button>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- CPU + Temperature Card -->
+            <div class="card">
+                <h2>CPU + Temperature</h2>
+                <div class="card-content">
+                    <div class="info-section">
+                        <p><strong>Brand:</strong> <span id="cpuBrand">-</span></p>
+                        <p><strong>Cores:</strong> <span id="cpuCores">-</span></p>
+                        <p><strong>Speed:</strong> <span id="cpuSpeed">-</span></p>
+                        <p><strong>Temperature:</strong> <span id="cpuTemp">-</span>°C</p>
+                        <p><strong>Usage:</strong> <span id="cpuUsage">-</span>%</p>
+                    </div>
+                    <canvas id="cpuChart"></canvas>
+                </div>
+            </div>
+
+            <!-- GPU + Temperature Card -->
+            <div class="card">
+                <h2>GPU + Temperature</h2>
+                <div class="card-content">
+                    <div class="info-section" id="gpuInfo">
+                        <p><strong>GPU 1:</strong> <span id="gpu1Name">-</span></p>
+                        <p id="gpu1Details">VRAM: <span id="gpu1VRAM">-</span> | Temperature: <span id="gpu1Temp">-</span></p>
+                        <p id="gpu2Section" style="display: none;"><strong>GPU 2:</strong> <span id="gpu2Name">-</span></p>
+                        <p id="gpu2Details" style="display: none;">VRAM: <span id="gpu2VRAM">-</span> | Temperature: <span id="gpu2Temp">-</span></p>
+                    </div>
+                    <canvas id="gpuChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Disk Usage Card -->
+            <div class="card">
+                <h2>Disk Usage</h2>
+                <div class="card-content">
+                    <div class="info-section">
+                        <p><strong>Total:</strong> <span id="diskTotal">-</span></p>
+                        <p><strong>Used:</strong> <span id="diskUsed">-</span></p>
+                        <p><strong>Free:</strong> <span id="diskFree">-</span></p>
+                    </div>
+                    <canvas id="diskChart"></canvas>
+                </div>
+            </div>
+
+            <!-- RAM & Storage Card -->
+            <div class="card">
+                <h2>RAM & Storage</h2>
+                <div class="card-content">
+                    <div class="info-section">
+                        <p><strong>Total:</strong> <span id="ramTotal">-</span></p>
+                        <p><strong>Available:</strong> <span id="ramAvailable">-</span></p>
+                        <p><strong>Used:</strong> <span id="ramUsed">-</span>%</p>
+                        <p><strong>Free:</strong> <span id="ramFree">-</span>%</p>
+                    </div>
+                    <canvas id="ramChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Historical Data Visualization Card -->
+            <div class="card span-2">
+                <h2>Historical Data Visualization</h2>
+                <div class="card-content">
+                    <select id="historicalMetric" class="dropdown">
+                        <option value="memory">Memory</option>
+                        <option value="cpu">CPU</option>
+                        <option value="temperature">Temperature</option>
+                        <option value="network">Network</option>
+                    </select>
+                    <canvas id="historicalChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,17 @@
+services:
+  yarab:
+    build: .
+    container_name: yarab-metrics
+    # Option A (default): container shows container metrics
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+    # Option B (host metrics): uncomment the lines below (security-sensitive)
+    # network_mode: host
+    # pid: host
+    # privileged: true
+    # volumes:
+    #   - /:/host:ro
+
+

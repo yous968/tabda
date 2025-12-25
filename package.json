@@ -1,0 +1,22 @@
+{
+  "name": "health-metric-system",
+  "version": "1.0.0",
+  "description": "Health Metric System Dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "system",
+    "monitoring",
+    "dashboard",
+    "metrics"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+
